@@ -38,20 +38,22 @@ namespace WorkHelpers
             var doc = DocX.Create(fileName);
             //doc.InsertParagraph("This is my first paragraph");
             Novacode.Table t = doc.AddTable(table.Cokumns.Count+1, 5);
-            int i = 0;
+            int index = 0;
 
-            t.Rows[i].Cells[0].Paragraphs.First().Append("Spalte");
-            t.Rows[i].Cells[1].Paragraphs.First().Append("SCDHash");
-            t.Rows[i].Cells[2].Paragraphs.First().Append("Datentyp");
-            t.Rows[i].Cells[3].Paragraphs.First().Append("nullable");
-            t.Rows[i++].Cells[4].Paragraphs.First().Append("Quellspalte");
+            t.Rows[index].Cells[0].Paragraphs.First().Append("Spalte");
+            t.Rows[index].Cells[1].Paragraphs.First().Append("SCDHash");
+            t.Rows[index].Cells[2].Paragraphs.First().Append("Datentyp");
+            t.Rows[index].Cells[3].Paragraphs.First().Append("nullable");
+            t.Rows[index++].Cells[4].Paragraphs.First().Append("Quellspalte");
             foreach (Column column in table.Cokumns)
             {
-                t.Rows[i].Cells[0].Paragraphs.First().Append(column.Name);
-                t.Rows[i++].Cells[2].Paragraphs.First().Append(column.Datatyp);
+                t.Rows[index].Cells[0].Paragraphs.First().Append(column.Name);
+                t.Rows[index++].Cells[2].Paragraphs.First().Append(column.Datatyp);
             }
             doc.InsertTable(t);
+
             doc.Save();
+
             Process.Start("WINWORD.EXE", fileName);
         }
 
