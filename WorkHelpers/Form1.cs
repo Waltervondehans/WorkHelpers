@@ -33,6 +33,7 @@ namespace WorkHelpers
         private void button1_Click(object sender, EventArgs e)
         {
             WorkHelpers.Klassen.Table table = SQLHelper.getTableFromCreateStatement(tbSQL.Text);
+            //https://docx.codeplex.com/
             //Word http://www.codeproject.com/Articles/660478/Csharp-Create-and-Manipulate-Word-Documents-Progra
             string fileName = @"DocXExample.docx";
             var doc = DocX.Create(fileName);
