@@ -10,8 +10,8 @@ namespace WorkHelpers.Klassen
     {
         public static Table getTableFromCreateStatement(string createStatement) {
             Table table = new Table();
-            string[] spalten = createStatement.Split(',');
-            foreach (string s in spalten)
+            string[] columns = createStatement.Split(',');
+            foreach (string s in columns)
             {
                 if (s.Contains("(") && s.Contains("CREATE"))
                 {
