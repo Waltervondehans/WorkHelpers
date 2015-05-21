@@ -39,6 +39,7 @@ namespace WorkHelpers
             //doc.InsertParagraph("This is my first paragraph");
             Novacode.Table t = doc.AddTable(table.Cokumns.Count+1, 5);
             int i = 0;
+
             t.Rows[i].Cells[0].Paragraphs.First().Append("Spalte");
             t.Rows[i].Cells[1].Paragraphs.First().Append("SCDHash");
             t.Rows[i].Cells[2].Paragraphs.First().Append("Datentyp");
