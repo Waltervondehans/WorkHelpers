@@ -33,18 +33,10 @@ namespace WorkHelpers
         private void button1_Click(object sender, EventArgs e)
         {
             WorkHelpers.Klassen.Table table = SQLHelper.getTableFromCreateStatement(tbSQL.Text);
-
-
             //Word http://www.codeproject.com/Articles/660478/Csharp-Create-and-Manipulate-Word-Documents-Progra
-            // Modify to suit your machine:
             string fileName = @"DocXExample.docx";
-
-            // Create a document in memory:
             var doc = DocX.Create(fileName);
-
-            // Insert a paragrpah:
             //doc.InsertParagraph("This is my first paragraph");
-
             Novacode.Table t = doc.AddTable(table.Cokumns.Count+1, 5);
             int i = 0;
             t.Rows[i].Cells[0].Paragraphs.First().Append("Spalte");
@@ -58,11 +50,7 @@ namespace WorkHelpers
                 t.Rows[i++].Cells[2].Paragraphs.First().Append(column.Datatyp);
             }
             doc.InsertTable(t);
-
-            // Save to the output directory:
             doc.Save();
-
-            // Open in Word:
             Process.Start("WINWORD.EXE", fileName);
         }
 
