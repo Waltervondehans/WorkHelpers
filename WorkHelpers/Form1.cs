@@ -73,9 +73,7 @@ namespace WorkHelpers
                 t.Rows[index++].Cells[2].Paragraphs.First().Append((column.Datatyp).ToUpper());
             }
             doc.InsertTable(t);
-
             doc.Save();
-
             Process.Start("WINWORD.EXE", fileName);
         }
 
